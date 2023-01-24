@@ -12,7 +12,7 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with('user')->get();
+        $vehicles = Vehicle::with('user')->whereRelation('user', 'name', '<>', null)->get();
         return view('vehicle.index', compact('vehicles'));
     }
 
