@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('vehicle', \App\Http\Controllers\VehicleController::class);
+Route::resource('user', \App\Http\Controllers\UserController::class);
+
+Route::get('/historicals/{id}', [\App\Http\Controllers\HistoricalController::class, 'getHistoricals'])
+    ->name('historicals');
